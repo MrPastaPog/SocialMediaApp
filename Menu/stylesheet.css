@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+* {
+  font-family: 'Roboto';
+}
+#center {
+
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+}
+input {
+  width: 250px;
+  text-align: center;
+  background-color: lightblue;
+  border: none;
+}
+
+button {
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  background-color: blue;
+  
+}
+body {
+  background-color: aquamarine;
+}

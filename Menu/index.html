@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+  <h1 style="text-align: center;">Social Media App</h1>
+  <div id="center">
+    <input type="text" placeholder="Username">
+    <button>Confirm</button>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $('button').click(function() {
+      sessionStorage.setItem(JSON.stringify($('input').val()))
+      location.href += '/Home'
+      console.log('asdf')
+    })
+  </script>
+</body>
+</html>
