@@ -16,9 +16,13 @@ app.get('/Comments', (req, res) => {
 })
 app.post('/Post', (req, res) => {
   database.insert({
-    name: 'Bruno',
+    name: req.body.username,
     comment: req.body.content,
-    postedAt: new Date()
+    postedAt: new Date(),
+    hours: new Date().getHours(),
+    min: new Date().getMinutes(),
+    month: new Date().getMonth() + 1,
+    date: new Date().getDate()
   })
   res.json({status: 'success'})
 })

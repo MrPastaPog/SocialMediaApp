@@ -10,15 +10,10 @@
   <h1 style="text-align: center;">Social Media App</h1>
   <div id="center">
     <input type="text" placeholder="Username">
-    <button>Confirm</button>
+    <button id="confirm">Confirm</button>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script>
-    $('button').click(function() {
-      sessionStorage.setItem(JSON.stringify($('input').val()))
-      location.href += '/Home'
-      console.log('asdf')
-    })
+  <script src="app.js">
   </script>
 </body>
 </html>
