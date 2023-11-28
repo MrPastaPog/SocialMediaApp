@@ -9,7 +9,7 @@ const database = new Datastore('database.db')
 database.loadDatabase()
 
 app.get('/Comments', (req, res) => {
-  database.find({}).sort({postedAt: 1}).exec((err, data)=>{
+  database.find({}).sort({postedAt: -1}).exec((err, data)=>{
     res.json(data)
 
   })

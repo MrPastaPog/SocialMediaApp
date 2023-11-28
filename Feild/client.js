@@ -2,14 +2,15 @@
 $(function() {
   // if ('scrollRestoration' in window.history) {
   //   window.history.scrollRestoration = 'manual'
-  // }indow.sc
-  window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
+  // }
+
+
+  console.log(location.href)
   let username = JSON.parse(sessionStorage.getItem('Username'))
   console.log(username)
-  fetch('http://localhost/Comments')
+  fetch(`${location.href}../Comments`)
   .then(res => res.json()).then(data => {
-    console.log(data)
-    data.reverse()
+    
     for (d in data) {
       console.log(d)
       $('#center').prepend(`<div id="comment">
@@ -34,9 +35,10 @@ $(function() {
       },
       body: JSON.stringify({"content": $('textarea').val(), "username": username})
     }
-    fetch('http://localhost/Post', options)
+    fetch(`${location.href}../Post`, options)
     .then(res => res.json()).then(data => {
       location.reload()
     })  
   })
+
 })
