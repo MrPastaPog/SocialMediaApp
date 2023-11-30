@@ -10,6 +10,14 @@ database.loadDatabase()
 
 app.get('/Comments', (req, res) => {
   database.find({}).sort({postedAt: -1}).exec((err, data)=>{
+
+    if(data.length === 0) {
+      data.push({name: 'Server', comment: 'There is no comments', postedAt: new Date(),
+      hours: new Date().getHours(),
+      min: new Date().getMinutes(),
+      month: new Date().getMonth() + 1,
+      date: new Date().getDate()})
+    }
     res.json(data)
 
   })
