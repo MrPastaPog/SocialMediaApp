@@ -1,4 +1,13 @@
-
+$.fn.appendToWithIndex = function(to,index){
+  if(! to instanceof jQuery){
+      to=$(to);
+  };
+  if(index===0){
+      $(this).prependTo(to)
+  }else{
+      $(this).insertAfter(to.children().eq(index-1));
+  }
+};
 function LoadComments() {
   fetch(`${location.href}../Comments`)
   .then(res => res.json()).then(data => {
@@ -16,10 +25,21 @@ function LoadComments() {
 }
 function updateComments() {
   fetch(`${location.href}../Comments`)
-  .then(res => res.json).then(data => {
+  .then(res => res.json()).then(data => {
+    console.log(data)
     if ($('#center').children().length - 2 < data.length) {
-      
+      for(let i = 0; i < (data.length - ($('#center').children().length - 2)); i ++) {
+        $(`<div id="comment">
+        <h1 style="font-size: 20px;">${data[i].name} ${data[i].hours}:${data[i].min} ${data[i].date}/${data[i].month}</h1>
+        <p>${data[i].comment}</p>
+        </div>`).appendToWithIndex($('#center'), $('#center').children().length - 2)
+      }
     }
+    window.scrollTo({
+      top: 99999,
+      left: 0,
+      behavior: 'smooth'
+    });
   })
 }
 $(function() {
@@ -43,7 +63,7 @@ $(function() {
     fetch(`${location.href}../Post`, options)
     .then(res => res.json()).then(data => {
 
-      LoadComments()
+      updateComments()
       
     })  
     $('textarea').val('')
