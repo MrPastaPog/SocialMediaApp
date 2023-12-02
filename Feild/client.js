@@ -52,7 +52,7 @@ $(function() {
     e.preventDefault()
     console.log('asfiu')
     console.log($('textarea').val())
-  
+    if ($('textarea').val().length === 0) {return 0}
     const options = {
       method: 'POST',
       headers: {
